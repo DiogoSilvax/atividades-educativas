@@ -539,38 +539,86 @@
         }
 
         .price-highlight {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
+            background: linear-gradient(135deg, #fffdf0 0%, #fff8d6 100%);
+            border: 2.5px solid #d4af37;
+            border-radius: 16px;
+            padding: 24px 20px;
             text-align: center;
-            margin: 20px 0;
+            margin: 28px 0;
+            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.25);
+            animation: pulse-gold 2.5s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-highlight::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            transform: skewX(-20deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes pulse-gold {
+            0% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+
+            20% {
+                left: 200%;
+            }
+
+            100% {
+                left: 200%;
+            }
         }
 
         .price-label {
-            font-size: 12px;
-            font-weight: 700;
+            font-size: 13px;
+            font-weight: 800;
             letter-spacing: 1px;
             text-transform: uppercase;
-            color: var(--text-mid);
+            color: #b8860b;
         }
 
         .price-value {
-            font-size: 52px;
+            font-size: 56px;
             font-weight: 900;
-            color: var(--orange);
+            color: #d4af37;
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
             line-height: 1;
-            margin: 6px 0;
+            margin: 8px 0;
         }
 
         .price-value sup {
             font-size: 24px;
             vertical-align: top;
             margin-top: 10px;
+            color: #d4af37;
         }
 
         .price-note {
-            font-size: 13px;
-            color: var(--text-mid);
+            font-size: 14px;
+            font-weight: 600;
+            color: #856404;
         }
 
         /* ============ FAQ ============ */
@@ -1459,7 +1507,7 @@
             <div class="price-highlight">
                 <p class="price-scarcity">⚠️ Oferta promocional válida por tempo limitado.</p>
                 <div class="price-label">Hoje Você Paga Apenas:</div>
-                <div class="price-value"><sup>R$</sup>19<span style="font-size:28px">,90</span></div>
+                <div class="price-value"><sup>R$</sup>10<span style="font-size:28px">,90</span></div>
                 <div class="price-note">Pagamento único. Acesso Vitalício.</div>
             </div>
 
