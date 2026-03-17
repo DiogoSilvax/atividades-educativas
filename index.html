@@ -600,19 +600,34 @@
         }
 
         .price-value {
-            font-size: 56px;
+            font-size: 72px;
             font-weight: 900;
             color: #d4af37;
-            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.4), 2px 2px 0px rgba(0, 0, 0, 0.1);
             line-height: 1;
-            margin: 8px 0;
+            margin: 12px 0;
+            display: block;
+            animation: price-pop 3s ease-in-out infinite;
+        }
+
+        @keyframes price-pop {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
         }
 
         .price-value sup {
-            font-size: 24px;
+            font-size: 28px;
             vertical-align: top;
-            margin-top: 10px;
-            color: #d4af37;
+            margin-top: 15px;
+            color: #d8a500;
+            margin-right: -4px;
         }
 
         .price-note {
