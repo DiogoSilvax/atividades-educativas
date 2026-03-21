@@ -563,30 +563,65 @@
             font-weight: 800;
         }
 
-        /* ============ PRICE BOX ============ */
-        .price-box {
-            border: 2.5px dashed var(--yellow-border);
-            background: var(--yellow);
-            border-radius: var(--radius);
-            padding: 36px;
-            max-width: 560px;
+        /* ============ PREMIUM PRICING CARD ============ */
+        .premium-pricing-card {
+            background: #ffffff;
+            border-radius: 20px;
+            max-width: 580px;
             margin: 48px auto 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            position: relative;
+            transform: translateY(0);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .price-box-title {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--blue-dark);
+        .premium-pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .pricing-header {
+            background: linear-gradient(135deg, var(--blue-dark) 0%, #1e3a8a 100%);
+            padding: 32px 24px;
             text-align: center;
-            margin-bottom: 24px;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .pricing-header h3 {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: #fef08a;
+            color: #854d0e;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 6px 16px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-body {
+            padding: 32px 32px 16px;
+            background: #ffffff;
         }
 
         .price-line {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 14px 0;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
             font-size: 15px;
         }
 
@@ -594,102 +629,74 @@
             border-bottom: none;
         }
 
-        .price-line .item-name {
+        .item-name {
             color: var(--text-dark);
-            font-weight: 500;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .price-line .item-price {
+        .check-icon {
+            color: var(--green);
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+        .item-price {
             color: var(--text-mid);
             text-decoration: line-through;
             font-size: 14px;
+            font-weight: 500;
         }
 
         .price-total {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 0 0;
-            border-top: 2px solid var(--yellow-border);
-            margin-top: 8px;
+            padding: 16px 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            margin-top: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-mid);
+        }
+
+        .total-strike {
+            color: #ef4444;
+            text-decoration: line-through;
             font-size: 16px;
-            font-weight: 800;
-            color: var(--orange);
         }
 
-        .price-highlight {
+        .pricing-offer {
             background: linear-gradient(135deg, #fffdf0 0%, #fff8d6 100%);
-            border: 2.5px solid #d4af37;
-            border-radius: 16px;
-            padding: 24px 20px;
+            padding: 32px 20px 24px;
             text-align: center;
-            margin: 28px 0;
-            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.25);
-            animation: pulse-gold 2.5s infinite;
+            border-top: 2px solid #fef08a;
             position: relative;
-            overflow: hidden;
-        }
-
-        .price-highlight::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-            transform: skewX(-20deg);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes pulse-gold {
-            0% {
-                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6);
-            }
-
-            70% {
-                box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
-            }
-        }
-
-        @keyframes shine {
-            0% {
-                left: -100%;
-            }
-
-            20% {
-                left: 200%;
-            }
-
-            100% {
-                left: 200%;
-            }
         }
 
         .price-label {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: #b8860b;
+            color: #a16207;
+            margin-bottom: 8px;
         }
 
         .price-value {
-            font-size: 72px;
+            font-size: 90px;
             font-weight: 900;
-            color: #d4af37;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.4), 2px 2px 0px rgba(0, 0, 0, 0.1);
+            color: #ca8a04;
+            text-shadow: 0 4px 20px rgba(202, 138, 4, 0.3), 2px 2px 0px rgba(0, 0, 0, 0.05);
             line-height: 1;
-            margin: 12px 0;
-            display: block;
-            animation: price-pop 3s ease-in-out infinite;
+            margin: 8px 0;
+            animation: pulse-price 2.5s infinite;
         }
 
-        @keyframes price-pop {
+        @keyframes pulse-price {
 
             0%,
             100% {
@@ -697,22 +704,63 @@
             }
 
             50% {
-                transform: scale(1.05);
+                transform: scale(1.03);
             }
         }
 
         .price-value sup {
-            font-size: 28px;
+            font-size: 32px;
             vertical-align: top;
-            margin-top: 15px;
-            color: #d8a500;
+            margin-top: 16px;
+            color: #eab308;
             margin-right: -4px;
         }
 
-        .price-note {
+        .price-value .cents {
+            font-size: 36px;
+        }
+
+        .price-urgency {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(220, 38, 38, 0.1);
+            color: #b91c1c;
+            padding: 8px 16px;
+            border-radius: 100px;
             font-size: 14px;
-            font-weight: 600;
-            color: #856404;
+            font-weight: 700;
+            margin-top: 16px;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #ef4444;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+            animation: pulse-dot 1.5s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+
+        @keyframes pulse-dot {
+            to {
+                box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+            }
+        }
+
+        .pricing-action {
+            padding: 0 32px 32px;
+            background: linear-gradient(135deg, #fffdf0 0%, #fff8d6 100%);
+            border-bottom: 2px solid #fef08a;
+            border-radius: 0 0 20px 20px;
+            text-align: center;
+        }
+
+        .trust-pricing {
+            margin-top: 20px;
+            opacity: 0.8;
+            justify-content: center;
         }
 
         /* ============ FAQ ============ */
@@ -1523,52 +1571,57 @@
                 <h2 class="section-title">Resumo do <span>Seu Pedido</span></h2>
             </div>
 
-            <div class="price-box">
-                <div class="price-box-title">Pacote Completo — 10.000 Atividades</div>
-
-                <div class="price-line">
-                    <span class="item-name">📚 +10.000 Atividades Educativas</span>
-                    <span class="item-price">R$ 47,00</span>
-                </div>
-                <div class="price-line">
-                    <span class="item-name">🎁 Bônus 1: Atividades Especiais</span>
-                    <span class="item-price">R$ 27,90</span>
-                </div>
-                <div class="price-line">
-                    <span class="item-name">🎁 Bônus 2: Caderno Silábico</span>
-                    <span class="item-price">R$ 27,90</span>
-                </div>
-                <div class="price-line">
-                    <span class="item-name">🎁 Bônus 3: Inglês Infantil</span>
-                    <span class="item-price">R$ 27,90</span>
-                </div>
-                <div class="price-line">
-                    <span class="item-name">🎁 Bônus 4: Guia de Planejamento</span>
-                    <span class="item-price">R$ 27,90</span>
+            <div class="premium-pricing-card">
+                <div class="pricing-header">
+                    <h3>PACOTE COMPLETO — 10.000 ATIVIDADES</h3>
+                    <div class="discount-badge">⚠️ Últimas horas com 90% de desconto</div>
                 </div>
 
-                <div class="price-total">
-                    <span>VALOR TOTAL REAL:</span>
-                    <span>R$ 158,60</span>
+                <div class="pricing-body">
+                    <div class="price-line">
+                        <span class="item-name"><span class="check-icon">✓</span> +10.000 Atividades Educativas</span>
+                        <span class="item-price">R$ 47,00</span>
+                    </div>
+                    <div class="price-line">
+                        <span class="item-name"><span class="check-icon">✓</span> Bônus 1: Atividades Especiais</span>
+                        <span class="item-price">R$ 27,90</span>
+                    </div>
+                    <div class="price-line">
+                        <span class="item-name"><span class="check-icon">✓</span> Bônus 2: Caderno Silábico</span>
+                        <span class="item-price">R$ 27,90</span>
+                    </div>
+                    <div class="price-line">
+                        <span class="item-name"><span class="check-icon">✓</span> Bônus 3: Inglês Infantil</span>
+                        <span class="item-price">R$ 27,90</span>
+                    </div>
+                    <div class="price-line">
+                        <span class="item-name"><span class="check-icon">✓</span> Bônus 4: Guia de Planejamento</span>
+                        <span class="item-price">R$ 27,90</span>
+                    </div>
+
+                    <div class="price-total">
+                        <span>VALOR TOTAL REAL:</span>
+                        <span class="total-strike">R$ 158,60</span>
+                    </div>
+                </div>
+
+                <div class="pricing-offer">
+                    <div class="price-label">LIBERADO HOJE POR APENAS:</div>
+                    <div class="price-value">
+                        <sup>R$</sup>19<span class="cents">,90</span>
+                    </div>
+                    <div class="price-urgency">
+                        <span class="pulse-dot"></span> Mais de 2.000 pessoas acessaram hoje
+                    </div>
+                </div>
+
+                <div class="pricing-action">
+                    <a href="https://pay.cakto.com.br/yma9ikj_786096" class="btn-cta btn-cta-full">
+                        ✅ Quero acessar as atividades agora
+                        <small>Receber material no meu e-mail agora</small>
+                    </a>
                 </div>
             </div>
-
-            <div class="price-highlight">
-                <p class="price-scarcity">⚠️ Últimas horas com 90% de desconto</p>
-                <div class="price-label">LIBERADO HOJE POR APENAS:</div>
-                <div class="price-value"
-                    style="font-size: 100px; text-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 3px 3px 0px rgba(0, 0, 0, 0.15);">
-                    <sup>R$</sup>19<span style="font-size:38px">,90</span>
-                </div>
-                <div class="price-note"
-                    style="color: #d93025; font-size: 16px; font-weight: 800; margin-top: 12px; animation: pulse 2s infinite;">
-                    🔥 Mais de 2.000 pessoas acessaram hoje</div>
-            </div>
-
-            <a href="https://pay.cakto.com.br/yma9ikj_786096" class="btn-cta btn-cta-full">
-                ✅ Quero acessar as atividades agora
-                <small>Receber material no meu e-mail agora</small>
-            </a>
 
             <div class="trust-badges" style="margin-top:20px;">
                 <div class="trust-badge"><span class="check">🔒</span> Compra Segura</div>
