@@ -1131,6 +1131,61 @@
             object-fit: cover;
         }
 
+        .audio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            cursor: pointer;
+            backdrop-filter: blur(2px);
+            transition: opacity 0.3s ease;
+        }
+
+        .audio-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .audio-btn {
+            background: var(--blue-mid);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: pulse-audio 2s infinite;
+        }
+
+        @keyframes pulse-audio {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+            }
+
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+            }
+        }
+
         /* ============ RESPONSIVE ============ */
         @media (max-width: 600px) {
             .cards-grid {
@@ -1224,13 +1279,30 @@
                     <div class="mac-dot green"></div>
                 </div>
                 <div class="video-container">
-                    <video autoplay loop muted playsinline controls preload="metadata"
+                    <div class="audio-overlay" onclick="enableAudio(this)">
+                        <div class="audio-btn">
+                            <span style="font-size: 20px;">🔊</span> CLIQUE PARA ASSISTIR
+                        </div>
+                    </div>
+                    <video id="main-vsl" autoplay loop muted playsinline controls preload="metadata"
                         controlsList="nodownload noplaybackrate" disablePictureInPicture oncontextmenu="return false;"
                         poster="https://via.placeholder.com/800x450/000000/FFFFFF?text=Seu+V%C3%ADdeo+Aqui">
-                        <source src="https://i.imgur.com/SAPXiYh.mp4" type="video/mp4">
+                        <source src="https://i.imgur.com/ByIK1KA.mp4" type="video/mp4">
                         Seu navegador não suporta o elemento de vídeo.
                     </video>
                 </div>
+
+                <script>
+                    function enableAudio(overlay) {
+                        const video = document.getElementById('main-vsl');
+                        if (video) {
+                            video.muted = false;
+                            video.currentTime = 0;
+                            video.play();
+                        }
+                        overlay.classList.add('hidden');
+                    }
+                </script>
             </div>
 
             <a href="https://pay.cakto.com.br/yma9ikj_786096" class="btn-cta">
